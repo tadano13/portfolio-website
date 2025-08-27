@@ -6,26 +6,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.querySelector('.projects-container');
     const loader = document.getElementById('loader');
     const ageElement = document.getElementById('age');
-    const contactBtn = document.getElementById('contact-btn');
+    const contactBtnDesktop = document.getElementById('contact-btn-desktop');
+    const contactBtnMobile = document.getElementById('contact-btn-mobile');
     const contactModal = document.getElementById('contact-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
 
-    // --- FUNCTIONS ---
+    function setupMobileMenu() {
+        if (!menuBtn || !menu) return;
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('open');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+
+        const mobileLinks = menu.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                menuBtn.classList.remove('open');
+            });
+        });
+    }
+
     function setupContactModal() {
-        if (!contactBtn || !contactModal || !closeModalBtn) return;
+        if (!contactModal || !closeModalBtn) return;
 
-        contactBtn.addEventListener('click', () => {
-            contactModal.classList.remove('hidden');
-        });
+        const openModal = () => contactModal.classList.remove('hidden');
+        const closeModal = () => contactModal.classList.add('hidden');
 
-        closeModalBtn.addEventListener('click', () => {
-            contactModal.classList.add('hidden');
-        });
+        if (contactBtnDesktop) contactBtnDesktop.addEventListener('click', openModal);
+        if (contactBtnMobile) contactBtnMobile.addEventListener('click', openModal);
+        
+        closeModalBtn.addEventListener('click', closeModal);
 
-        // Optional: Close modal when clicking the overlay
         contactModal.addEventListener('click', (e) => {
             if (e.target === contactModal) {
-                contactModal.classList.add('hidden');
+                closeModal();
             }
         });
     }
@@ -45,10 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ageElement.textContent = age;
     }
 
-    /**
-     * Fetches repository data from the GitHub API.
-     * @returns {Promise<Array>} A promise that resolves to an array of repository objects.
-     */
     async function fetchGitHubProjects() {
         try {
             const response = await fetch(API_URL);
@@ -59,15 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return data;
         } catch (error) {
             console.error('Failed to fetch projects:', error);
-            return []; // Return an empty array on error
+            return [];
         }
     }
 
-    /**
-     * Creates an HTML element for a single project card.
-     * @param {object} repo - The repository object from the GitHub API.
-     * @returns {HTMLElement} The project card element.
-     */
     function createProjectCard(repo) {
         const card = document.createElement('div');
         card.className = 'project-card';
@@ -109,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsContainer.appendChild(projectCard);
         });
     }
-
 
     function setupSliderControls() {
         if (!projectsContainer) return;
@@ -159,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await displayProjects();
         setupSliderControls();
         setupContactModal();
+        setupMobileMenu();
     }
     
     init();

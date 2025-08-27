@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant Sawaimoon - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-black">
+
+    <div class="container mx-auto p-6 md:p-10">
+        <header class="flex justify-between items-center border-b-2 border-black pb-4">
+            <div class="logo">
+                <img src="app-development.png" alt="Logo" class="h-12 w-auto">
+            </div>
+            <nav class="hidden md:flex items-center gap-6 font-bold">
+                <a href="#about" class="hover:underline">About Me</a>
+                <a href="#projects" class="hover:underline">Projects</a>
+                <a href="#education" class="hover:underline">Education</a>
+                <a href="#tech" class="hover:underline">Technologies</a>
+                <button id="contact-btn" class="font-bold hover:underline">Contact</button>
+            </nav>
+        </header>
+
+        <section class="hero-section grid md:grid-cols-2 gap-8 items-center py-16">
+            <div>
+                <h1 class="text-7xl font-black leading-none">Hello.<br>I'm Nishant.</h1>
+                <p class="mt-4 text-lg">
+                    A tech enthusiast and student developer with a passion for learning and building applications. This portfolio is a showcase of my journey and work.
+                </p>
+                <a href="https://github.com/tadano13" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 px-6 py-3 border-2 border-black font-bold hover:bg-black hover:text-white transition-colors">
+                    View my GitHub
+                </a>
+            </div>
+            <div class="hidden md:flex justify-center">
+                <img src="hero-image.png" alt="Developer Illustration" class="w-auto h-auto max-w-xs md:max-w-sm">
+            </div>
+        </section>
+
+        <section id="about" class="my-16">
+            <h2 class="text-5xl font-black mb-8">About Me</h2>
+            <div class="about-card">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <p class="text-lg leading-relaxed">
+                            I'm a passionate and curious developer currently in my <strong>2nd year of Computer Engineering</strong>. My journey in tech is driven by a love for solving problems and building things from the ground up. Outside of coding, I'm a huge fan of immersive storytelling, whether it's through the strategic challenges of <strong>2D games</strong> or the captivating narratives of <strong>anime</strong>.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div>
+                            <span class="font-mono text-gray-600">Age</span>
+                            <span id="age" class="text-2xl font-black">--</span>
+                        </div>
+                        <div>
+                            <span class="font-mono text-gray-600">Location</span>
+                            <span class="text-2xl font-black">Daman, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="education" class="my-16">
+            <h2 class="text-5xl font-black mb-8">Education</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="education-card">
+                    <h3 class="text-2xl font-black">Bachelor of Engineering - Computer Engineering</h3>
+                    <p class="font-bold mt-1">Government Engineering College, Daman</p>
+                    <p class="font-mono mt-2">Currently Enrolled</p>
+                </div>
+                <div class="education-card">
+                    <h3 class="text-2xl font-black">Diploma in Computer Science</h3>
+                    <p class="font-bold mt-1">Government Polytechnic, Daman</p>
+                    <p class="font-mono mt-2">Completed</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section my-16">
+            <h2 class="text-5xl font-black mb-8">Projects</h2>
+            <div class="projects-container">
+                <div id="loader" class="text-center font-bold">Fetching projects from GitHub...</div>
+            </div>
+        </section>
+
+        <section id="tech" class="my-16">
+            <h2 class="text-5xl font-black mb-8">Technologies & Interests</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="tech-card">Machine Learning</div>
+                <div class="tech-card">Android Applications</div>
+                <div class="tech-card">Software Testing</div>
+                <div class="tech-card">Web Development</div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contact-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+            <h2 class="text-3xl font-black mb-6 text-center">Contact Me</h2>
+            <div class="contact-links">
+                <a href="#" class="contact-link">Discord: .nishhhh13</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nishantsawaimoon282@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link">Gmail</a>
+                <a href="#" class="contact-link">Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

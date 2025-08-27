@@ -33,7 +33,7 @@ You can easily use this project as a template for your own portfolio. Here’s h
 Clone or download this repository to your local machine.
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 ```
 
 ### 2. Customize the Content
